@@ -1,0 +1,146 @@
+\input mbheader
+
+\title{1. cvičení z Matroidů}{co matroid je a co není}
+
+TODO: Zde budou pripomenuty definice, ktere pouzivame pozdeji v cviceni.
+
+\ex{Rozhodnete, jestli nasledujici struktury jsou matroid:
+
+\begin{itemize} 
+\item Mame graf $G$, elementy matroidu jsou hrany. Elementy jsou nezavisle, pokud spolu tvori parovani (ne nutne maximalni, proste nejake). Pocitame
+i prazdne parovani.
+\item Vezmeme Fanovu rovinu (konecnou projektivni rovinu na 7 vrcholech). Elementy matroidu budou body roviny, a mnozina bodu je nezavisla, pokud zadne tri body nelezi na primce.
+\item Mejme cislo $k≥3$ a hypergraf $H$ (nosna mnozina $X$ a system podmnozin $H$). Elementy matroidu jsou hrany (mnoziny) z $H$. Elementy $E_1,E_2, …, E_k$ 
+jsou nezavisle, pokud zadny vrchol z $⋃_i E_i ⊆ X$ neni pokryty $k$ mnozinami/elementy $E_i$.
+%TODO: jeste jeden?
+
+\end{itemize}
+
+}
+
+\sol{
+\begin{itemize}
+\item Prvni struktura neni matroidem, protoze ne vzdy jde mensi parovani rozsirit na vetsi pomoci pouze pridavani hran.
+\item Fanova rovina matroidem je, dokonce reprezentovatelnym.
+\item Podobny argument jako v prvni -- muzeme mit $k-1$ kopii mnoziny $\{1,2,3\}$ jako nezavislou velikosti $k-1$, a pak $k/3$ kopii kazde z mnozin
+$\{1,4\} , \{2,4\}, \{3,4\}$. Obe jsou nezavisle, ale doplnit jednu z druhe neumime.
+\end{itemize}
+}
+
+\ex{
+\begin{itemize}
+\item Jak byste popsali reci grafu pojmy {\it uzaver, nadrovina, kokruznice}\/? Ukazte na prikladech. 
+\item Jak byste popsali reci matic ty same pojmy? Odpovida pojem {\it nadrovina} intuici z matic v $ℝ^d$?
+\end{itemize}
+}
+
+\sol{
+\begin{itemize}
+\item {\it uzaver} $X$ -- mnozina hran, ktere tvori kruznice s kostrou $X$. Nebo mnozina vektoru, ktere jsou v podprostoru urcenym $X$.
+\item {\it nadrovina} $X$ -- maximalni mnozina hran, ktere neobsahuji kostru $X$. Maximalni mnozina vektoru, ktera nema plnou dimenzi.
+\item {\it kokruznice} $X$ -- minimalni mnozina hran, ktera protina kazdou kostru $X$. Minimalni mnozina vektoru, jejichz doplnek
+nema plny rank.
+\end{itemize}
+}
+
+\ex{ Mejme nasledujici matici:
+\[
+\begin{pmatrix}
+1 & 0 & 0 & 1 & 1 & 0 \\
+0 & 1 & 0 & 1 & 0 & 1 \\
+0 & 0 & 1 & 0 & 1 & 1 \\
+\end{pmatrix}
+\]
+Chapejme ji jednou jako matici nad $\Z_2$, a podruhe jako matici nad $\Z_3$. Jsou maticove matroidy techto dvou matic totozne?
+}
+
+\sol{Z Oxleyho. Nejsou.}
+
+\ex{Jake vlastnosti se ztrati, kdyz prejdu od grafu ke grafovemu matroidu? Predstavme si, ze mame grafovy matroid $M(G)$ vznikly z jednoducheho grafu $G$, jenze tento matroid $M(G)$ je zadany orakulem, cili:
+
+\begin{itemize}
+\item zname celou mnozinu elementu $E$,
+\item pro kazdou podmnozinu elementu $X⊆E$ se muzeme dotazat orakula, jestli plati $X ∈ \Ind$.
+\end{itemize}
+
+Jde rozhodnout (s libovolnou vypocetni silou) nasledujici otazky?
+
+\begin{itemize}
+
+\item Byl puvodni graf souvisly?
+\item Obsahoval puvodni graf kliku na alespon $30$ vrcholech?
+\item Obsahoval puvodni graf perfektni parovani?
+\end{itemize}
+}
+
+\sol{
+
+\begin{itemize}
+\item Nejde rozhodnout, graf s dvema disjunktnimi trojuhelniky a graf s dvema trojuhelniky spojenymi vrcholem tvori
+stejny matroid.
+
+\item Jde rozhodnout. Je treba dokazat, ze klika na $30$ vrcholech
+tvori jednoznacne urceny matroid, pak proste vyresime hledani
+podmatroidu v $M(G)$. Pouzit muzeme tento popis: ``maximalni nezavisla
+mnozina je velikosti $29$, a kazda dalsi hrana z ${30 \choose 2} - 29$
+tvori kruznici o velikosti alespon $3$.''
+
+Puvodni graf pak musi byt souvisly, jinak by vubec nemohl mit tolik
+hran (pokud ignorujeme paralelni hrany, ale to muzeme). No a kdyz je
+souvisly a ma tuto vlastnost, uz je to uplny graf na $30$ vrcholech.
+
+\item Opet nelze rozhodnout, graf s vidlickou a graf s perfektnim parovanim nejde rozpoznat.
+
+\end{itemize}
+
+}
+
+\ex{Popiste uniformni matroid $U_{m,n}$ pomoci matice nad vhodnym telesem -- nebo vymyslete algoritmus, jak tuto reprezentaci spocitat.}
+
+\sol{ Popisu postup nad $ℝ$ -- zacnu s jednotkovou bazi $ℝ^m$. Kazda
+$m-1$-tice vektoru mi urci nadrovinu. Nehlede na to, kolik techto
+nadrovin je, vzdycky existuje vektor mimo tyto nadroviny. Tak ho
+zvolim a vlozim jako dalsi vektor do reprezentace, a algoritmus opakuji.
+}
+
+
+\ex{
+Mejme matroid $M$. Uz mame \emph{uzaver mnoziny}, tak si muzeme snadno
+definovat uzavrene a otevrene mnoziny: mnozina je uzavrena, pokud
+$cl(X) = X$, a mnozina je otevrena, pokud jeji doplnek je uzavreny.
+Otazka zni: dostali jsme takto topologii? Dokazte nebo vyvratte.
+
+Axiomy topologie:
+\begin{enumerate}
+\item $∅, E$ (cela nosna mnozina) jsou otevrene.
+\item Sjednoceni libovolneho poctu otevrenych mnozin je otevrena mnozina.
+\item Prunik konecne mnoha otevrenych mnozin je otevrena mnozina.
+\end{enumerate}
+}
+
+\sol{
+\begin{enumerate}
+\item Jednoduche -- obe jsou uzavrene a zaroven otevrene.
+
+\item Delam pruniky doplnku. Kdyby v pruniku doplnku chybel element
+nezvedajici rank, tak chybi v nektere z uzavrenych mnozin -- spor.
+
+\item Chtel bych ukazat, ze sjednoceni uzavrenych je uzavrena, ale to
+neni obecne pravda -- pokud rozdelim Hamiltonovskou kruznici na 10
+vrcholech na 1 hranu, jeden kus po 4 hranach $A$ a jeden kus po 5
+hranach $B$, pak $A ∪ B$ neni uzavrena mnozina, ale $A$ a $B$ samotne
+uzavrene jsou. Takze konecne matroidy topologii nakonec nejsou.
+
+\end{enumerate}
+}
+
+\ex{Jde kazdy maticovy matroid popsat jako grafovy matroid nejakeho
+grafu? Jde kazdy grafovy matroid popsat jako maticovy matroid pro
+nejakou matici?}
+
+\sol{Necekam, ze se stihne, ale nechavam pro chytre hlavy a jako motivace
+pristich cviceni/prednasek. Jinak $U_{2,4}$ neni grafovy, a kazdy graf
+se da reprezentovat matici incidence.
+}
+
+\input mbfooter

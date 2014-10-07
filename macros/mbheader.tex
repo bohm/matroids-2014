@@ -1,0 +1,115 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc} % unicode in math formulas
+\usepackage{amsmath} % math definitions
+\usepackage{amssymb}
+\usepackage[czech]{babel}
+%\usepackage{czech} % \uv{}, among others
+\usepackage[pdftex]{graphicx}
+\usepackage[cm]{fullpage} %smaller margins
+\usepackage{enumitem}
+% For some illogical reason, this needs to be used if I'm using utf8x and \title .
+\PrerenderUnicode{č}\PrerenderUnicode{š}\PrerenderUnicode{ž}\PrerenderUnicode{ř}
+\PrerenderUnicode{í}\PrerenderUnicode{á}\PrerenderUnicode{ý}\PrerenderUnicode{ť}
+\PrerenderUnicode{ď}\PrerenderUnicode{ě}\PrerenderUnicode{é}
+
+% macro definitions
+% TODO: move macros into a separate file, so people can include those. 
+
+\let\csc=\textsc % in LaTeX it needs to be called \csc{text}, not {\csc text}.
+
+\def\title#1#2{
+\vbox {\hrule height 1.5pt \hbox to \hsize {\dimen0=\hsize \advance\dimen0 by -3pt\vrule width 1.5pt\vbox{\vskip 10pt \hbox to \dimen0{\hss \Large \bf \MakeUppercase{{#1}}\hskip 5pt}
+\hbox to \dimen0{ \hss \small #2\hskip 5pt}
+\vskip 5pt}\vrule width 1.5pt}\hrule height 1.5pt}}
+
+\def\smalltitle#1#2{
+\vbox {\hrule height 1pt \hbox to \hsize {\dimen0=\hsize \advance\dimen0 by -5pt \vrule width 1pt \vbox{\vskip 3pt \hbox to \dimen0 {\small \bf \hskip 2pt \MakeUppercase{#1} \hss {#2} \hskip 2pt}\vskip 2pt} \vrule width 1pt} \hrule height 1pt}}
+
+% ex counter
+\newcounter{excounter}
+
+% exercise name
+\def\exname{
+\ifcase\value{excounter} nultý
+\or první
+\or druhý
+\or třetí
+\or čtvrtý
+\or pátý
+\or šestý
+\or sedmý
+\or osmý
+\or devátý
+\or desátý
+\or jedenáctý
+\or dvanáctý
+\or třináctý
+\or čtrnáctý
+\or patnáctý
+\else\arabic{stepcounter}
+\fi
+}
+
+\long\def\ex#1{\stepcounter{excounter}\vskip 0.5em \indent \hbox to 4.5cm{\csc{\large Příklad\exname}\hfil} #1}
+
+\def\textalpha{\alpha}
+\def\textbeta{\beta}
+\def\textepsilon{\varepsilon}
+\def\Z{\mathbb{Z}}
+\def\Ind{\mathcal{I}}
+\newcommand{\set}{}
+% solution printing or non-printing
+%\def\WITHsol{}
+\ifdefined\WITHsol
+	%\newenvironment{sol}%
+	%	{\par\smallskip\noindent\textbf{Řešení.}\hspace{4mm}}%
+	%	{}
+	\long\def\sol#1{{\bf Řešení.} #1}
+	%\includecomment{sol}
+\else
+	%\excludecomment{sol}
+	\long\def\sol#1{}
+\fi
+
+% Dusan's LP macros: so I can steal exercises easier:
+
+\newenvironment{LP}[3][1]{
+\begin{array}{r@{\quad}l} 
+\textrm{#2} & \: \displaystyle #3
+\\[5pt]
+\textrm{za podmínek}&
+\begin{array}[t]{*{#1}{>{\displaystyle}rc}r@{\quad}l} 
+}{
+\end{array}
+\end{array}
+}
+
+\newenvironment{LPpro}[4][1]{
+$$\begin{array}{r@{\quad}l} 
+\textrm{#2} & \: \displaystyle #3
+\\[5pt]
+\textrm{pro} & \: \displaystyle #4
+\\[5pt]
+\textrm{za podmínek}&
+\begin{array}[t]{*{#1}{>{\displaystyle}rc}r@{\qquad}l}
+}{
+\end{array}
+\end{array}
+$$
+}
+
+\newenvironment{LPmax}[2][1]{\begin{LP}[#1]{maximalizuj}{#2}}{\end{LP}}
+\newenvironment{LPmin}[2][1]{\begin{LP}[#1]{minimalizuj}{#2}}{\end{LP}}
+
+\newenvironment{LPmaxpro}[3][1]{\begin{LPpro}[#1]{maximalizuj}{#2}{#3}}{\end{LPpro}}
+\newenvironment{LPminpro}[3][1]{\begin{LPpro}[#1]{minimalizuj}{#2}{#3}}{\end{LPpro}}
+
+% paragraph and style config
+\parindent=0pc
+\parskip=4pt
+\pagenumbering{gobble}
+% I don't like this appearance, but the default one is ugly as well
+% \setlist[itemize]{noitemsep}
+% \setlist{nolistsep}
+\begin{document}

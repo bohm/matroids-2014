@@ -1,0 +1,36 @@
+\pdfoutput=1
+\pdfpkresolution=600
+
+\input utf8-csf.tex
+\input ucwmac.tex
+\input ucw-ofs.tex
+% \input colordvi
+
+% \showfonts
+
+\twelvepoint
+\nopagenumbers
+
+% ucwmac-style page setup
+\sethmargins{4em}
+\setvmargins{3em}
+\setuppage
+
+% paragraph config
+\parindent=0pc
+\parskip=4pt
+
+\def\mod{{\rm mod\ }}
+\def\term#1{{\it #1}}
+\def\title#1#2{
+\vbox {\hrule height 1.5pt \hbox to \hsize {\dimen0=\hsize \advance\dimen0 by -3pt\vrule width 1.5pt\vbox{\vskip 10pt \hbox to \dimen0{ \hss \settextsize{20} \bf \uppercase{#1}\hskip 5pt}
+\hbox to \dimen0{ \hss \settextsize{10} #2\hskip 5pt}
+\vskip 5pt}\vrule width 1.5pt}\hrule height 1.5pt}}
+
+\def\smalltitle#1#2{
+\vbox {\hrule height 1pt \hbox to \hsize {\dimen0=\hsize \advance\dimen0 by -5pt \vrule width 1pt \vbox{\vskip 3pt \hbox to \dimen0 {\settextsize{10} \bf \hskip 2pt \uppercase{#1} \hss {#2} \hskip 2pt}\vskip 2pt} \vrule width 1pt} \hrule height 1pt}}
+
+%\def\ex#1{\vskip 0.5em {\csc\settextsize{14}#1}\vskip 1pt}
+\def\ex#1{\vskip 0.5em \indent \hbox to 4.5cm{\csc\settextsize{14}#1\hfil}}
+\def\chapter#1{\vskip 1em{\settextsize{16} \bf #1} \vskip 1pt}
+
