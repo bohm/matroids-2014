@@ -1,0 +1,58 @@
+\input mbheader
+\def\Bas{\mathcal{B}}
+\title{10. cvičení z Matroidů}{grafove matroidy}
+
+\ex{Opakovani: dokazte, ze $K_{3,3}^*, K_{5}^*$ nejsou grafove matroidy.}
+
+\ex{Mejme orientovany $3$-souvisly graf $\vec{G}$. Zodpovezte na nasledujici otazky:
+
+\begin{enumerate}
+\item Necht $\vec{G}$ je take rovinny. Co je orientovana kruznice, to je jasne. Jak byste definovali orientaci pro kokruznice (v reci primalu)?
+
+\item Necht $\vec{G}$ neni rovinny. Jak definovat orientovanou kokruznici v takovemto grafu?
+
+\item Necht pro $\vec{G}$ plati, ze neobsahuje zadnou orientovanou kokruznici. Jak tuto vlastnost
+popiseme v reci teorie grafu?
+\end{enumerate}
+}
+
+\ex{V dukaze na minule prednasce se pouzilo to, ze mame-li binarni
+matroid reprezentovany jako $[I_r | D]$, a nejakou kruznici-nadrovinu,
+ktera neni fundamentalni kruznici vuci $I_r$, tak po relaxaci teto
+kruznice-nadroviny by reprezentace \uv{vypadala jako} $[I_r |D]$, ale
+to nemuze, takze vysledny matroid nemuze byt binarni.
+
+Otazka zni: muze nejaky binarni matroid po relaxaci kruznice-nadroviny
+zustat binarni? Popiste vsechny situace, kdy to je mozne.
+}
+
+\ex{Necht $G$ a $H$ jsou (vrcholove) $3$-souvisle multigrafy bez
+izolovanych vrcholu a smycek. Dokazte (pokud to nebylo na prednasce),
+ze pokud $M(G) \cong M(H)$, tak $G ≅ H$ (Pro $2$-souvisle je to s
+upravou Whitneyho veta.)
+
+\textbf{Napoveda:} Kazdy graf je jednoznacne urceny tim, ze zadate kazdemu vrcholu seznam jeho incidentnich hran.
+}
+
+\medskip\hrule\medskip
+
+Uz jsme mluvili o tom, ze pro graf $G$ s $m$ hranami jeho prostor
+cyklu a prostor rezu neni nic jineho, nez dualita kruznic a
+kokruznic. V teorii grafu se to ale standardne definuje jinak:
+
+Prostor cyklu $V_c$ je vektorovy prostor v $Z_2^m$ takovy, ze obsahuje
+kazdy \textit{sudy} podgraf, cili podgraf se vsemi sudymi stupni. Da
+se snadno nahlednout, ze baze tohoto prostoru je mnozina kruznic.
+Prostor rezu je pak vektorovy prostor ortogonalni na $V_c$, rovnez nad
+$Z_2^m$.
+
+Pojdme si tedy dokazat, ze to v matroidech opravdu sedi:
+
+\ex{Necht $A = [I_r | D] $ je binarni matroid (resp. nejaka jeho reprezentace) ranku
+$r$ s nosnou mnozinou $m$. Zadefinujme \textit{prostor kruznic}
+$V_\Cyc$ matroidu $A$ jako vektorovy prostor nad $Z_2^m$ takovy, ze
+jeho baze je mnozina kruznic $A$. Dokazte, ze prostor kokruznic $A$ je
+prostor ortogonalni k $V_\Cyc$ a je ranku $r$.
+}
+
+\input mbfooter

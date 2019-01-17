@@ -1,0 +1,41 @@
+\input mbheader
+
+\title{3. cvičení z Matroidů}{minory}
+
+\ex{ Mejme uniformni matroid $U_{m,n}$. Existuje nejaky minor $U_{m,n}$, ktery neni sam uniformni? }
+
+\ex{ Rest z minula: Mějme dva matroidy $M_1, M_2$ na disjunktních nosných množinách. Definujme si {\it direktní součet} $M_1$ s $M_2$ takto: $\Ind(M_1 ⊕ M_2) ≡ \{ I_1 ∪ I_2 | I_1 ∈ \Ind(M_1), I_2 ∈ \Ind(M_2)\}$.
+
+\begin{itemize}
+\item Dokažte, že direktní součet je znovu matroid.
+\item Je direktní součet dvou matroidů na {\it nedisjunktních} nosných množinách stále matroid?
+\item Popište kružnice, báze matroidu $M_1 ⊕ M_2$.
+\item Popište, jak vypadá direktní součet dvou grafů, dvou vektorových matroidů.
+\item (Náš cíl.) Jak vypadá duál $(M_1 ⊕ M_2)^*$? Dá se popsat pomocí $M_1^*, M_2^*$?
+\end{itemize}
+}
+
+\ex{Sledujme, co se stane s kruznici $C$, pokud kontrahujeme jednu hranu $e$.
+\begin{itemize}
+\item Necht $e∉C$. Bude $C$ vzdycky kruznice v $M/e$? Pokud ne, co to bude?
+\item Necht $e∉C$. Muze $C$ obsahovat $3$ kruznice v $M/e$?
+\item Pro zmenu necht $e ∈ C$. Bude $C ∖ e$ zarucene kruznice v $M/e$ alespon nyni?
+\end{itemize}
+}
+
+\ex{Po predchozim cviceni jiste hrave zformulujete a dokazete popis kruznic minoru $M/T$:
+\vskip 0.2cm
+
+\centerline{$C'$ je kruznici v $M/T$, prave kdyz $C'$ je \hskip 4.5cm z $\{C ∖ T | C ∈ \Cyc(M)\}$.}
+}
+
+\ex{
+\begin{itemize}
+\item Nejprve rozcvicka: jaka je nutna a postacujici podminka pro hranu $e$ v matroidu $M$, aby platilo $M / e = M ∖ e$?
+\item Dokazte, ze pokud $\{f,g,e\}$ je jak kruznice, tak kokruznice v $M$, tak plati $M/f∖g = M/g∖f$.
+\end{itemize}
+}
+
+\ex{ Dokazte, ze kografove matroidy $M^*(K_5)$ a $M^*(K_{3,3})$ nejsou grafove.}
+
+\input mbfooter

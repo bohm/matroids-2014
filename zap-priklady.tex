@@ -1,0 +1,109 @@
+\input mbheader
+\def\Bas{\mathcal{B}}
+\title{Příklady z Matroidů}{namísto účasti na cvičení}
+
+Pokud nemáte aktivní účast na cvičeních (rozumějte: nikdy jste na něm
+nebyli), vyřešte prosím všechny příklady a pošlete mi emailem jejich
+řešení ve formátu PDF. Pokud budete mít dotazy k zadání, nebojte se
+napsat.  Přestože se každý příklad dnes dá dohledat na internetu,
+prosím vás, aby řešení byla primárně z vaší hlavy.
+
+Příklady jsou vybrané z cvičení a může být užitečné se podívat
+i na ostatní příklady z daného cvičení.
+
+\ex{
+Mejme matroid $M$. Zname take \emph{uzaver mnoziny}, tak si muzeme snadno
+definovat uzavrene a otevrene mnoziny: mnozina je uzavrena, pokud
+$cl(X) = X$, a mnozina je otevrena, pokud jeji doplnek je uzavreny.
+Otazka zni: dostali jsme takto topologii? Dokazte nebo vyvratte.
+
+Axiomy topologie:
+\begin{enumerate}
+\item $∅, E$ (cela nosna mnozina) jsou otevrene.
+\item Sjednoceni libovolneho poctu otevrenych mnozin je otevrena mnozina.
+\item Prunik konecne mnoha otevrenych mnozin je otevrena mnozina.
+\end{enumerate}
+}
+
+\ex{
+Mějme dva matroidy $M_1, M_2$ na disjunktních nosných
+množinách. Definujme si {\it direktní součet} $M_1$ s $M_2$ takto:
+$\Ind(M_1 ⊕ M_2) ≡ \{ I_1 ∪ I_2 | I_1 ∈ \Ind(M_1), I_2 ∈ \Ind(M_2)\}$.
+
+\begin{itemize}
+\item Dokažte, že direktní součet je znovu matroid.
+\item Je direktní součet dvou matroidů na {\it nedisjunktních} nosných množinách stále matroid?
+\item Popište kružnice, báze matroidu $M_1 ⊕ M_2$.
+\item Popište, jak vypadá direktní součet dvou grafů, dvou vektorových matroidů.
+\item (Náš cíl.) Jak vypadá duál $(M_1 ⊕ M_2)^*$? Dá se popsat pomocí $M_1^*, M_2^*$?
+\end{itemize}
+
+}
+
+\ex{
+\begin{itemize}
+\item Nejprve rozcvicka: jaka je nutna a postacujici podminka pro hranu $e$ v matroidu $M$, aby platilo $M / e = M ∖ e$?
+\item Dokazte, ze pokud $\{f,g,e\}$ je jak kruznice, tak kokruznice v $M$, tak plati $M/f∖g = M/g∖f$.
+\end{itemize}
+}
+
+\ex{Uvazme matici $R_{10}$ o deseti sloupcich, zapsanou nize:
+
+
+\[ R_{10} = I_5 |  \begin{pmatrix}
+1 & 1 & 0 & 0 & 1 \\
+1 & 1 & 1 & 0 & 0 \\
+0 & 1 & 1 & 1 & 0 \\
+0 & 0 & 1 & 1 & 1 \\
+1 & 0 & 0 & 1 & 1 \\
+\end{pmatrix}
+\]
+
+Zodpovezte nasledujici otazky:
+
+\begin{itemize}
+\item Jaky je dual matroidu $R_{10}$?
+\item Je matroid $R_{10}$ grafovy?
+\item Je determinant kazde ctvercove submatice roven $\{-1,0,1\}$?
+\item Da se prava $5 × 5$ cast matice $R_{10}$ doplnit minusky tak, aby uz predchozi bod platil?
+\end{itemize}
+}
+
+
+\ex{
+Prostor cyklu $V_c$ je vektorovy prostor v $Z_2^m$ takovy, ze obsahuje
+kazdy \textit{sudy} podgraf, cili podgraf se vsemi sudymi stupni. Da
+se snadno nahlednout, ze baze tohoto prostoru je mnozina kruznic.
+Prostor rezu je pak vektorovy prostor ortogonalni na $V_c$, rovnez nad
+$Z_2^m$.
+
+Pojdme si tedy dokazat, ze to v matroidech opravdu sedi:
+
+Necht $A = [I_r | D] $ je binarni matroid (resp. nejaka jeho reprezentace) ranku
+$r$ s nosnou mnozinou velikosti $m$. Zadefinujme \textit{prostor kruznic}
+$V_\Cyc$ matroidu $A$ jako vektorovy prostor nad $Z_2^m$ takovy, ze
+jeho baze je mnozina kruznic $A$. Dokazte, ze prostor kokruznic $A$ je
+prostor ortogonalni k $V_\Cyc$ a je dimenze $r$.
+}
+
+\ex{Dokažte, že algoritmická verze \textsc{Matroid Intersection} pro 3
+matroidy najednou je NP-těžký problém.}
+
+
+\ex{Z přednášky známe velkou větu \uv{Matroid intersection theorem},
+takže vás možná napadlo, jestli existuje \uv{Matroid union
+theorem}. Opravdu existuje a jeho formulace hovoří o matroidu, který
+jsme viděli již v předchozích cvičeních, a to je nedisjunktni
+sjednocení dvou matroidů.
+
+Dokážte tedy následující větu:
+
+\textit{Mějme $M_1 = (E_1,\Ind_1)$ a $M_2 = (E_1,\Ind_2)$ matroidy ($E_1 ∩ E_2$ může být neprázdný).
+    Vytvořme $M = (E_1 ∪ E_2, \{I_1 ∪ I_2 | I_1 \in \Ind_1 , I_2 \in \Ind_2 \})$. Pak $M$ je matroid a jeho ranková funkce pro $U ⊆ E_1 ∪ E_2$ lze
+spočítat jako:}
+
+\[r(U) = \min_{T ⊆ U}\left(|U ∖ T| + r_1(T ∩ E_1) + r_2(T ∩ E_2) \right). \]
+
+}
+
+\input mbfooter

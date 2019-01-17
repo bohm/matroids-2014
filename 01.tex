@@ -2,7 +2,27 @@
 
 \title{1. cvičení z Matroidů}{co matroid je a co není}
 
-TODO: Zde budou pripomenuty definice, ktere pouzivame pozdeji v cviceni.
+\dfn[maticovy matroid]{Maticovy matroid vznikne z matice $m × n$ tak, ze kazdy sloupecek chapeme
+jako jeden element z nosne mnoziny a mnozina elementu je nezavisla $⇔$ vektory jsou linearne nezavisle.
+}
+
+\dfn[grafovy matroid]{Grafovy matroid vznikne tak, ze vezmeme {\it hrany} grafu $G$ jako elementy nosne mnoziny
+a mnozina elementu je nezavisla $⇔$ mnozina hran neobsahuje kruznici.
+}
+
+\dfn[kruznice]{ Kruznice $C ≡ $ jakakoli minimalni zavisla mnozina.}
+
+\dfn[baze]{ Baze $B ≡$ jakakoli maximalni nezavisla mnozina.}
+
+\dfn[rank]{ $r: 2^{E} → ℕ_0$,  $r(X) ≡ $ velikost nejvetsi nezavisle uvnitr $X$.}
+
+\dfn[uzaver]{ $cl: 2^{E} → 2^{E}$, $cl(X) = \{y| r(X ∪ {y}) = r(X) \}$.}
+
+\dfn[uzavrena mnozina n. flat]{ Kazda $X$ takova, ze $cl(X) = X$.}
+
+\dfn[nadrovina]{ Nadrovina $H ≡$ maximalni mnozina, pro kterou plati $r(H) ≠ r(B)$.}
+
+\medskip\hrule\medskip
 
 \ex{Rozhodnete, jestli nasledujici struktury jsou matroid:
 
@@ -29,7 +49,7 @@ $\{1,4\} , \{2,4\}, \{3,4\}$. Obe jsou nezavisle, ale doplnit jednu z druhe neum
 
 \ex{
 \begin{itemize}
-\item Jak byste popsali reci grafu pojmy {\it uzaver, nadrovina, kokruznice}\/? Ukazte na prikladech. 
+\item Jak byste popsali reci grafu pojmy {\it uzaver, uzavrena mnozina (flat), nadrovina}\/? Ukazte na prikladech. 
 \item Jak byste popsali reci matic ty same pojmy? Odpovida pojem {\it nadrovina} intuici z matic v $ℝ^d$?
 \end{itemize}
 }
@@ -88,7 +108,6 @@ tvori kruznici o velikosti alespon $3$.''
 Puvodni graf pak musi byt souvisly, jinak by vubec nemohl mit tolik
 hran (pokud ignorujeme paralelni hrany, ale to muzeme). No a kdyz je
 souvisly a ma tuto vlastnost, uz je to uplny graf na $30$ vrcholech.
-
 \item Opet nelze rozhodnout, graf s vidlickou a graf s perfektnim parovanim nejde rozpoznat.
 
 \end{itemize}
@@ -96,13 +115,13 @@ souvisly a ma tuto vlastnost, uz je to uplny graf na $30$ vrcholech.
 }
 
 \ex{Popiste uniformni matroid $U_{m,n}$ pomoci matice nad vhodnym telesem -- nebo vymyslete algoritmus, jak tuto reprezentaci spocitat.}
-
+\medskip
+\goodbreak
 \sol{ Popisu postup nad $ℝ$ -- zacnu s jednotkovou bazi $ℝ^m$. Kazda
 $m-1$-tice vektoru mi urci nadrovinu. Nehlede na to, kolik techto
 nadrovin je, vzdycky existuje vektor mimo tyto nadroviny. Tak ho
 zvolim a vlozim jako dalsi vektor do reprezentace, a algoritmus opakuji.
 }
-
 
 \ex{
 Mejme matroid $M$. Uz mame \emph{uzaver mnoziny}, tak si muzeme snadno

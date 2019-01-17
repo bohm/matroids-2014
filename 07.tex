@@ -1,0 +1,43 @@
+\input mbheader
+\def\Bas{\mathcal{B}}
+\title{7. cvičení z Matroidů}{Souvislost + sudoku}
+
+\ex{Necht matroid $M$ je $k$-souvisly a ma alespon $2k-1$ elementu. Pak vsechny
+kruznice a kokruznice obsahuji alespon $k$ elementu.}
+
+\ex{Necht matroid $M$ je $k$-souvisly a ma alespon $2k-1$ elementu. Pak $M$
+neobsahuje zadnou podmnozinu $X$ velikosti $k$ takovou, ze $X$ je kruznice a kokruznice zaroven.}
+
+\ex{Muze existovat matroid se souvislosti rovnou nekonecno?}
+
+\bigskip\hrule\medskip
+
+Mejme klasickou mrizku ($9 \times 9$) sudoku, celou vyplnenou nejakymi cisly.
+Jeden radek $r_i$, sloupec $s_i$ nebo blok $b_i$ \textit{zkontrolujeme}, pokud
+projdeme cely utvar a ujistime se, ze v utvaru jsou prave cisla od $1$ do $9$,
+kazde jednou.
+
+Oznacme si $K$ mnozinu vsech radku, sloupcu a bloku (velikosti 27).
+Mnozina $X \subseteq K$ uz \textit{zkontroluje cele sudoku}, pokud
+si po zkontrolovani techto radku, sloupcu a bloku si uz muzeme byt jisti, ze
+cele Sudoku ma vsude cisla podle pravidel.
+
+Otazka samozrejme je, jaka je velikost nejmensi mnoziny utvaru, ktera zkontroluje
+cele sudoku.
+
+\ex{Zkuste najit (hranim si s problemem) nejakou malou mnozinu utvaru, ktera
+zkontroluje cele sudoku. Potom zkuste pro tuto mnozinu overit, ze zadna jeji
+podmnozina uz nekontroluje cele sudoku.}
+
+\ex{Oznacme si $\Bas \subseteq 2^K$ mnozinu vsech do inkluze minimalnich mnozin
+utvaru, ktera zkontroluje cele sudoku. Necht vam prozradim, ze $(K,\Bas)$ je
+matroid. Jak to pomuze k reseni hlavni otazky?}
+
+\ex{Pokud $(K,\Bas)$ je matroid, je to uniformni matroid?}
+
+\ex{Dokazme si nejakou velmi zjednodusenou formu vymenneho axiomu: dokazte, ze
+pokud $L \in \Bas$ a plati, ze prvni radek lezi v $L$ a druhy nelezi, tak
+muzeme nahradit prvni radek za druhy a vysledna zmenena $L'$ splnuje $L' \in
+\Bas$.}
+
+\input mbfooter

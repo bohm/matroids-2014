@@ -1,0 +1,119 @@
+\input mbheader
+\title{4. cvičení z Matroidů}{Důkazy eliminací}
+
+\sol{Rád bych na začátku vysvětlil užitečný postup při dokazování eliminací:
+\begin{enumerate}
+\item Bez moc myšlení doplnit struktury, které máme v ruce (jde nezávislá doplnit na nějakou užitečnou bázi? nebo na kružnici?)
+\item Použít minminální/maximální protipříklad (uvažme kružnici s nejmenším průnikem, bázi s největším průnikem atd.)
+\item Použít eliminační argument a ukázat, že máme lepší protipříklad.
+\end{enumerate}
+
+Příklad postupu je vidět na řešeném předpříkladu.
+}
+
+{\bf Předpříklad:} Mějme kružnici $C$ v matroidu $M$, proveďme
+minorovou operaci $M/e$ pro jednu hranu $e ∉ C$, co není smyčka ani
+kosmyčka. Dokážeme, že množina $C$ uvnitř $M/e$ se nemůže skládat
+z~disjunktního sjednocení $C = C' + I$ pro $C'$ kružnici v $M/e$ a $I$
+nezávislou v $M/e$.
+
+\sol{ Postup:
+
+{\bf Řešení:} 
+\begin{itemize}
+\item $I$ je nezávislá v $M/e$ $→$ $I + e$ je nezávislá v $M$.
+\item První kružnice: $C' ⊂ C$ je kružnice v $M/e$ $→$ $∀x∈ C'$ platí, že $C' - x$ je nezávislá, čili $C' - x + e$ je nezávislá v $M$.
+Víme také, že $C'+e$ je závislá v $M$ a $C'$ samotná není: $C'+e$  je kružnice v $M$. 
+\item Minimalizační argument: Uvažujme kružnici $C_{min}$, která se vyhybá elementu $x$ a minimalizuje množství elementů v průniku $P = C_2 ∩ C'$. Intuice: $I+e$ samotné je kružnicí
+(aspoň to říká naše intuice z grafů), takže minimum bude $0$.
+\item Pozorování: všechny množiny $I+e+P'$
+\item Argument přes nezávislost: $C - x$ je nezávislá, stejně tak $I +e$, takže platí, že umíme rozšířit množinu $I+e$ na množinu $C +e - x - y$.
+\item $C+e-x-y$ je báze -- všechny kružnice procházejí buď $x,y$, z čehož plyne, že $\{x,y,e\}$ je kokružnice.
+\end{itemize}
+
+}
+
+\medskip \hrule \medskip
+\ex{Dokažte, že pokud $C$ je kružnice v $M$ a $e ∉ C$, tak $C$ jako
+množina uvnitř $M/e$ není disjunktní sjednocení tří a více kružnic.}
+
+\sol{
+
+Mějme tři kružnice $C_1, C_2, C_3 = C$ v $M$. Protože jsou závislé,
+tak všechny $C_1 +e, C_2 +e, C_3 +e$ jsou závislé v $M$, a dokonce
+jsou kružnicemi. Použijeme eliminaci nejdříve na $C_1 +e$ s $C_2 +
+e$. Dostaneme $C_l ⊆ C_1 ∪ C_2$, která neobsahuje nic z $C_3$. Ale
+kružnice $C_l ⊂ C$ v $M$, což je spor.
+
+}
+
+\ex{Dokážte variantu eliminačního lemmatu pro kružnice, zvaného {\it strong circuit elimination}:
+
+Mějme kružnice $C_1, C_2$ a vyberme si elementy $p ∈ C_1 ∩ C_2$ a $z ∈
+C_1 ∖ C_2$. Pak existuje $C_3$ taková, že $z ∈ C_3 ⊆ (C_1 ∪ C_2) - p$.
+
+}
+
+\sol{
+
+Mějme minimální protipříklad našeho tvrzení co do $|C_2 ∖ C_1|$.
+Aplikujeme normální circuit elimination axiom pro $p ∈ C_1 ∩
+C_2$, dostaneme $C_3$. Pak $z ∉ C_3$ nebo jsme hotovi.
+
+Nechť nejsme hotovi. Pak $p,z ∉ C_3$. Protože $p ∉ C_3$, tak $C_1 ≠
+C_3 ≠ C_2$. Protože $C_3 ≠ C_2$, tak existuje něco v průniku $C_1 ∩
+C_3$. Stejně tak existuje něco v rozdílu $C_2 ∖ C_3$.
+
+Může $C_3$ hrát roli $C_2$? Neobsahuje $z$ a jistě není celé $C_1$,
+ale s $C_1$ má průnik. Tedy může. Zmenšil se $|C_3 ∖ C_1|$ oproti
+$|C_2 ∖ C_1|$? Ano, všechny elementy z $∅ ≠ C_2 ∖ C_3 ⊆ C_2 ∖ C_1$ se
+vyhodily.
+ 
+}
+
+\ex{Dokažte charakterizaci kružnic v kontrahovaném minoru, kterou jsme minule nestihli:
+
+\centerline{$C'$ je kružnicí v $M/T$, právě když $C'$ je libovolný $⊆$-minimální prvek z $\{C ∖ T | C ∈ \Cyc(M)\}$.}
+}
+
+\ex{Následující induktivní zesílení (C3) skoro platí, ale opravdu jen skoro. Zkuste ho vyvrátit.
+
+Máme $C ∈ \Cyc$, mějme také $X ⊆ C$ a pro každý element $x ∈ X$
+jednu příslušnou kružnici $C_x ∈ \Cyc, C ≠ C_x$. Po $C_x$ požadujeme, aby $x ∈ C_x$ a
+také, aby $x ∉ C_y$ pro $y ≠ x$. Pak platí, že $∃ C' ∈ \Cyc$ $C' ⊆ (C ∪ ⋃_x C_x) ∖ X$.
+}
+
+\sol{ Vezměme si $K_4$. $C$ bude vnější kružnice a $C_1,C_2,C_3$ zbylé tři stěny. Pak
+tvrzení platí, takže by měla existovat kružnice uvnitř $C_1 ∪ C_2 ∪ C_3 - e_1,e_2,e_3$
+-- jenže to je hvězda (strom).
+}
+
+\ex{\textit{Eliminační finále:} Dokažte tranzitivnost relace \uv{být na společně kružnici} pro matroidy.
+
+Čili: Nechť $x,y ∈ C_1$, $y,z ∈ C_2$, pak existuje $C_3$ taková, že $x,z ∈ C_3$.
+
+{\bf Nápověda:} Postupujte indukcí třeba podle $n = |C_2 ∖ C_1|$. Bude se hodit silná eliminace.
+}
+
+\sol{
+$|C_2 ∖ C_1| = 1 → C_2 ∖ C_1 = z $ silná eliminace, zvol $x ∈ C_1$, $z$ se tam dostane samo.
+
+$|C_2 ∖ C_1| = k$. Použijeme eliminaci dvakrát, abychom vytvořili $C_4 ⊆ C_1 ∪ C_2$ takovou, že
+$x ∉ C_4, y,z ∈ C_4, |C_4 ∖ C_1| < |C_2 ∖ C_1|$ a vyhrajeme indukcí.
+
+První eliminace: zachovejme $x$ v $C_1$, vyhoďme $y ∈ C_1 ∩ C_2$. Teď
+máme $x ∈ C_a, y ∉ C_a, z ∉ C_a$.  Buď $z ∈ C_a$ (hotovo) nebo $z ∉
+C_a$. Když tam $z$ není, tak ho dodáme.
+
+Druhá eliminace: Máme $x ∈ C_a, z ∉ C_a, x ∉ C_2, z ∈ c_2$. Víme, že
+$∃l ∈ C_2 ∩ C_a$. Použijeme silnou eliminaci tak, že zaručíme $z$ a
+vyrazíme $l$. Dostaneme tak $C_b$, které to splňuje.
+
+Pokud $x ∈ C_b$, jsme hotovi. Pokud ne, tak $|C_b ∖ C_1|$ je menší než
+$C_2 ∖ C_1$, protože $C_2 ∖ C_1$ obsahoval $l$, kterého jsme se
+zbavili.
+
+
+}
+
+\input mbfooter

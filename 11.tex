@@ -1,0 +1,76 @@
+\input mbheader
+\def\Bas{\mathcal{B}}
+\title{11. cvičení z Matroidů}{Radovy matroidy jako zobecnění Hallovy věty}
+
+Celym cvicenim bude prostupovat bipartitni graf na mnozinach $(X,Y)$.
+Podle struktury na $Y$ budeme definovat matroid na mnozine $X$. Pro
+podmnoziny $K ⊆ X$ budeme casto chtit najit vsechny sousedy z $Y$;
+takovou mnozinu sousedu pak budeme znacit jako $N(K)$.
+
+\ex{Nejprve zadefinujme matroid na $X$ tak, ze kruznice budou vsechny do inkluze
+minimalni podmnoziny $K ⊆ X$ takove, ze $|N(K)| < |K|$. Dokazte, ze takova definice
+skutecne urcuje matroid.
+
+Pokud definice je spravna, tak se tento matroid jmenuje \textit{transverzalni matroid}.
+}
+
+\ex{Transverzalni matroid jiz mame hotovy, nicmene matroid, ktery nas
+skutecne bude zajimat, se jmenuje \textit{Raduv matroid}.
+
+Raduv matroid se definuje rovnez na mnozine $X$ pomoci bipartitniho
+grafu $(X,Y)$, avsak mnozina $Y$ uz je nejaky predchozi matroid.
+V Radove matroidu je kruznice $K⊆ X$ takova do inkluze minimalni mnozina,
+pro kterou plati, ze $r(N(K)) < |K|$.
+
+Overte, ze i Radova definice skutecne urcuje matroid.
+
+\textbf{Napoveda:} Muze se hodit spocitat $r(N(C_1 ∪ C_2))$.
+}
+
+\ex{
+\begin{itemize}
+\item Ukazte, ze transverzalni matroid je take Raduv matroid.
+\item Ukazte, ze kazdy matroid muze vzniknout jako Raduv matroid.
+\end{itemize}
+}
+
+\ex{Uz vime, jak vypadaji kruznice v Radove matroidu; jak ale vypadaji nezavisle mnoziny?
+Zde prichazi na scenu ono zobecneni Hallovy vety, tak jej dokazme:
+
+\textit{Mnozina $K$ v Radove matroidu $M(X)$ je nezavisla, prave kdyz existuje mnozina $L ⊆ Y$ takova,
+ze $L$ je nezavisla v $M(Y)$ a existuje perfektni parovani mezi $K$ a $L$.}
+}
+
+\ex{K cemu jsou Radovy matroidy uzitecne? Pokud si vzpominate, tak bipartitni argumenty
+se pouzivaji v dukazu Matroid Intersection Theorem; neni tedy zadny div, ze se daji pouzit
+k lepsimu nahledu na MIT (pokud je clovek zna).
+
+Dokazme si tedy pribuzny vysledek Matroid Union pomoci Radovych matroidu:
+
+\textit{Bud $M_1$, $M_2$ matroidy na dvou nosnych mnozinach, mozna
+sebe pronikajicich.  Vlozme $I$ do systemu $\Ind$, pokud existuji
+disjunktni mnoziny $I_1,I_2$ takove, ze $I = I_1 ∪ I_2$ a $I_i$ je
+nezavisla v $M_i$. Pak $(E(M_1) ∪ E(M_2), \Ind)$ popisuje matroid.
+}
+
+}
+
+\medskip\hrule\medskip
+Na pozdejsi rozmysleni:
+
+\begin{enumerate}
+
+\item Pomoci Radovych matroidu dokazte silnejsi verzi Matroid Union,
+tedy dokazte navic, ze pro kazdou mnozinu $X$ v matroidu $(E(M_1) ∪
+E(M_2), \Ind)$ je jeji rank 
+
+\[ (X) = \min_{F ⊆ X} |X ∖ F| + r_{M_1}(F) + r_{M_2}(F). \]
+
+\item Zminovali jsme, ze pomoci Matroid Intersection jde dokazat
+silnejsi verze Matroid Union (ta z predchoziho bodu). Rozmyslete,
+jestli to jde i naopak, tj. z Matroid Union dokazat Matroid
+Intersection Theorem.
+
+\end{enumerate}
+
+\input mbfooter

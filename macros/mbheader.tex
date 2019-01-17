@@ -1,13 +1,18 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage[utf8x]{inputenc} % unicode in math formulas
+\usepackage{color}
 \usepackage{amsmath} % math definitions
 \usepackage{amssymb}
+\usepackage{amsfonts}
+
 \usepackage[czech]{babel}
 %\usepackage{czech} % \uv{}, among others
 \usepackage[pdftex]{graphicx}
 \usepackage[cm]{fullpage} %smaller margins
-\usepackage{enumitem}
+% \usepackage{enumitem}
+\usepackage{paralist}
+
 % For some illogical reason, this needs to be used if I'm using utf8x and \title .
 \PrerenderUnicode{č}\PrerenderUnicode{š}\PrerenderUnicode{ž}\PrerenderUnicode{ř}
 \PrerenderUnicode{í}\PrerenderUnicode{á}\PrerenderUnicode{ý}\PrerenderUnicode{ť}
@@ -58,6 +63,8 @@
 \def\textepsilon{\varepsilon}
 \def\Z{\mathbb{Z}}
 \def\Ind{\mathcal{I}}
+\def\Cyc{\mathcal{C}}
+
 \newcommand{\set}{}
 % solution printing or non-printing
 %\def\WITHsol{}
@@ -108,6 +115,104 @@ $$
 % paragraph and style config
 \parindent=0pc
 \parskip=4pt
+
+
+% statement macros
+
+% D: and similar
+\long\def\statementshort#1{%
+{\bf\begingroup\curcolor\curname:\endgroup}%
+#1}
+
+% D(theorem):
+\long\def\statementstandard[#1]#2{%
+{\begingroup\bf\curcolor\curname(\endgroup{#1}\begingroup\curcolor):\endgroup}%
+#2}
+
+% |D(theorem):
+% \long\def\statementlong#1#2{{\bf \begingroup\csname#1color\endcsname
+% \csname#1name\endcsname(\endgroup{\i
+% #2}\begingroup\csname#1color\endcsname):\endgroup}}
+
+
+
+
+%\def\statement#1#2{\slightnegindent \claimitem{#1}{#2}}
+
+\long\def\statement{%
+    \futurelet\statementToken\statementDecide
+}
+
+\long\def\statementDecide{%
+    \ifx\statementToken [%
+        \let\next = \statementstandard
+    \else
+        \let\next = \statementshort
+    \fi
+    \next
+}
+
+
+\def\dfn{%
+    \def\curname{D}
+    \def\curcolor{\color[rgb]{0.8,0,0}}
+    \statement
+}
+
+\def\thm{%
+    \def\curname{T}
+    \def\curcolor{\color[rgb]{0,0,0.5}}
+    \statement
+}
+
+\def\lem{%
+    \def\curname{L}
+    \def\curcolor{\color[rgb]{1,0,1}}
+    \statement
+}
+
+\def\prf{%
+    \def\curname{P}
+    \def\curcolor{\color[rgb]{0,0.5,0}}
+    \statement
+}
+
+\def\obs{%
+    \def\curname{O}
+    \def\curcolor{\color{black}}
+    \statement
+}
+
+\def\res{%
+    \def\curname{R}
+    \def\curcolor{\color{black}}
+    \statement
+}
+
+\def\cor{%
+    \def\curname{C}
+    \def\curcolor{\color{black}}
+    \statement
+}
+
+\def\opn{%
+    \def\curname{Q}
+    \def\curcolor{\color{black}}
+    \statement
+}
+
+\def\nta{%
+    \def\curname{N}
+    \def\curcolor{\color{black}}
+    \statement
+}
+
+% set paralist's compact itemize as default
+\let\oldenumerate\enumerate
+\let\olditemize\itemize
+\renewcommand{\itemize}{\compactitem}
+\renewcommand{\enumerate}{\compactenum}
+
 \pagenumbering{gobble}
 % I don't like this appearance, but the default one is ugly as well
 % \setlist[itemize]{noitemsep}

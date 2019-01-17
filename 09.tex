@@ -1,0 +1,72 @@
+\input mbheader
+\def\Bas{\mathcal{B}}
+\title{9. cvičení z Matroidů}{Totalni unimodularita}
+
+\ex{Nalezněte $A$ matici alespoň $3 × 3$, aby $A$ nebyla totálně
+unimodulární. Může navíc $A$ obsahovat pouze prvky $-1$, $0$ a $1$? A
+co když zakážeme i $-1$?}
+
+\ex{Rozhodnete o pravdivosti nasledujicich vyroku:
+
+\begin{itemize}
+\item Matroid je regularni, prave kdyz existuje reprezentace $R$, ktera je totalne unimodularni.
+\item Matroid je regularni, prave kdyz kazda reprezentace $R$ je totalne unimodularni.
+\item Matroid je regularni, prave kdyz kazda reprezentace $R$ obsahujici jen $\{-1,0,1\}$ je totalne unimodularni.
+% \item Je-li matroid grafovy, tak jeho kazda reprezentace $R$ obsahujici jen $\{-1,0,1\}$ je totalne unimodularni.
+\end{itemize}
+}
+
+\ex{Odbocka z optimalizace: k cemu jsou totalne unimodularni matice uzitecne?
+
+Mejme mnohosten (popisujici nejaky linearni program) zadany jako
+soustavu $A \vec{x} ≤ \vec{b}$.  Dokazte, ze kdyz $A$ je totalne unimodularni,
+tak kazdy vrchol mnohostenu je celociselny.
+
+Muze se hodit Cramerovo pravidlo: mam-li soustavu $n$ rovnic o $n$
+neznamych tvaru $S\vec{x} = \vec{t}$ kde $S$ ma nenulovy determinant,
+tak mohu spocitat $i$-tou souradnici reseni jako $x_i =
+\det(S_i)/\det(S)$, kde $S_i$ je matice $n × n$ vznikla nahrazenim
+$i$-teho sloupce vektorem $\vec{t}$.
+
+}
+
+\ex{Mějme matici $A$ velikosti $m × n$, jejíž řádky jdou rozložit
+na dvě skupiny $B$ a $C$. Nechť také platí:
+
+\begin{itemize}
+\item $A ∈ \{-1,0,1\}^{m × n}$,
+\item každý sloupec obsahuje nejvýše 2 nenulové hodnoty,
+\item Pokud mají dvě nenulové hodnoty v jednom sloupci $A$ stejné znaménko, tak jeden řádek
+patří do $B$ a druhý do $C$.
+\item Pokud mají dvě nenulové hodnoty v jednom sloupci $A$ různé znaménko, tak oba rádky
+patří do $B$ nebo zároveň do $C$.
+\end{itemize}
+
+Dokažte, že $A$ je potom totálně unimodulární.
+}
+
+\ex{Dokažte, že $0/1$-matice incidence grafu je totálně unimodulární právě tehdy, když graf je bipartitní.}
+
+\ex{Uvazme matici $R_{10}$, zapsanou nize:
+
+
+\[ R_{10} = I_5 +  \begin{pmatrix}
+1 & 1 & 0 & 0 & 1 \\
+1 & 1 & 1 & 0 & 0 \\
+0 & 1 & 1 & 1 & 0 \\
+0 & 0 & 1 & 1 & 1 \\
+1 & 0 & 0 & 1 & 1 \\
+\end{pmatrix}
+\]
+
+Zodpovezte nasledujici otazky:
+
+\begin{itemize}
+\item Jaky je dual matroidu $R_{10}$?
+\item Je matroid $R_{10}$ grafovy?
+\item Je determinant kazde ctvercove submatice roven $\{-1,0,1\}$?
+\item Da se prava $5 × 5$ cast matice $R_{10}$ doplnit minusky tak, aby uz predchozi bod platil?
+\end{itemize}
+}
+
+\input mbfooter

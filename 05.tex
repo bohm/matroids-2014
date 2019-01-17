@@ -1,0 +1,120 @@
+\input mbheader
+\title{5. cvičení z Matroidů}{Matroid intersection}
+
+\ex{Jako rozcvičku dokažte Königovu větu pomocí M.I.T. Königova věta je toto:
+
+\textit{Velikost maximálního párováni v souvislém bipartitním grafu $G$ je rovna velikosti minimálního
+vrcholového pokrytí v $G$.}
+
+\textbf{Nápověda:} Začněte tím, že popíšete maximální párování jako průnik dvou matroidů.
+
+} %4.1
+
+\ex{Dokažte, že algoritmická verze \textsc{Matroid Intersection} pro 3
+matroidy najednou je NP-těžký problém.
+
+\textbf{Nápověda:} Dokažte to redukcí přes problém \textsc{Orientovaná
+$s,t$-Hamiltonovská Cesta}, čili Ham. cesta v grafu $\vec{G}$ s
+předepsanými vrcholy $s,t$ jako začátek a konec. Jeden matroid by mohl
+popisovat neorientovanou verzi grafu $G$.
+}
+
+\sol{
+\begin{itemize}
+\item $M_1$: grafový matroid $G$.
+\item $\Ind(M_2)$: Množiny hran $I ⊆ V$ takové, že $vst(s) = 0,  ∀v ∈ V-s: vst(v) ≤ 1$.
+\item $\Ind(M_3)$: Množiny hran $I ⊆ V$ takové, že $vyst(t) = 0, ∀v ∈ V-t: vyst(v) ≤ 1$.
+\end{itemize}
+
+Je třeba ověřit, že $M_2, M_3$ jsou matroidy, ale není to těžké. Pokud existuje max.
+nezávislá ve všech 3 najednou velikosti $n-1$, pak je to H. cesta z $s$ do $t$.
+
+}
+
+\ex{Dokažte větu o duhové kostře:
+
+\textit{Mějme graf $G$ a nějaké libovolné hranové obarvení $c:E →
+\{1,2,…,k\}$. Graf $G$ obsahuje duhovou kostru právě tehdy, když pro
+každou podmnožinu $E' ⊆ E$, která obsahuje nejvýše $t-1$ barev, platí,
+že $G ∖ E'$ má nanejvýš $t$ komponent.}
+
+} %4.6
+
+\ex{\textit{Herní intermezzo:} Mějme Maker/Breaker hru na grafu $G$:
+Hráč $B$ začíná smazáním jedné hrany $e$ z $G$, a hráč $M$ poté vybere
+jednu hranu $f ∈ G - e$, kterou zapečetí (už nepůjde smazat).  Dále se
+hraje na $G - e - f$, dokud jsou hrany. Hráč $M$ vyhrává, pokud
+množina zapečetěných hran v libovolnou chvíli tvoří kostru $G$, a hráč
+$B$ vyhrává, pokud se tak nestane.
+
+Dokažte, že hráč $M$ má vítěznou strategii právě tehdy, když $G$ obsahuje
+dvě hranově-disjunktní kostry.
+
+}
+
+\sol{
+
+Nechť graf $2$ hranově disjunktní kostry nemá; pak existuje rozdělení
+$V_1 ∪ V_2 ∪ … ∪ V_k$ takové, že $E(V_1,V_2,…,V_k) ≤ 2(p-1) - 1$. Pak
+má Breaker hrát tak, že každé kolo eliminuje hranu z
+$E(V_1,V_2,…,V_k)$. Vzhledem k počtu hran platí, že hráč $M$ stihne
+zafixovat méně než $p-1$ z nich, a tedy bude výsledný graf nesouvislý.
+
+Na druhou stranu: nechť existují dvě disjunktní kostry. Budeme hrát
+tak, že pokud hráč $B$ smaže červenou hranu, podíváme se na komponenty
+červené kostry $C_1$ a $C_2$ a spojíme zelenou hranou tyto
+komponenty. Po spojení zkontrahujeme vrcholy, které jsme spojili.
+Pokud $B$ smaže smyčku, hrajeme libovolně tak, abychom nevytvořili kružnici.
+
+Zbývá dokázat, že $M$ vyhraje. Pokud $B$ má šanci vyhrát, tak jen tak,
+že vytvoří řez $R_1, R_2$. Podíváme se na poslední hranu z řezu,
+kterou smazal.  Pokud je červená, tak existují komponenty $C_1$ a
+$C_2$ tak, že $C_1 ⊆ R_1$ a $C_2 ⊆ R_2$. Ale to je spor, protože v
+tuto chvíli zvolíme zelenou hranu tak, abychom mohli spojit
+komponenty.
+
+}
+
+
+
+\ex{Z přednášky známe velkou větu \uv{Matroid intersection theorem},
+takže vás možná napadlo, jestli existuje \uv{Matroid union
+theorem}. Opravdu existuje a jeho formulace hovoří o matroidu, který
+jsme viděli již v předchozích cvičeních, a to je nedisjunktni
+sjednocení dvou matroidů.
+
+Dokážte tedy následující větu:
+
+\textit{Mějme $M_1 = (E_1,\Ind_1)$ a $M_2 = (E_1,\Ind_2)$ matroidy ($E_1 ∩ E_2$ může být neprázdný).
+    Vytvořme $M = (E_1 ∪ E_2, \{I_1 ∪ I_2 | I_1 \in \Ind_1 , I_2 \in \Ind_2 \}$. Pak $M$ je matroid a jeho ranková funkce pro $U ⊆ E_1 ∪ E_2$ lze
+spočítat jako:}
+
+\[r(U) = \min_{T ⊆ U}\left(|U ∖ T| + r_1(T ∩ E_1) + r_2(T ∩ E_2) \right). \]
+
+
+\textbf{Nápověda:}
+\begin{enumerate}
+\item Pokud zvolíme nějaké $U$, můžeme zvolit $M_a, M_b$ pro M.I.T. v závislosti na $U$ -- nemusíme je volit stejné
+pro všechny volby $U$.
+\item Jeden z matroidů, na které budeme chtít použít M.I.T., bude $M_1|U ⊕ M_2|U$.
+\end{enumerate}
+
+}
+
+\sol{Máme v ruce $U$, budeme pro něj chtít zvolit matroidy $M_a$ a
+$M_b$ takové, že $r(U) = max E'$ jako max. nezávislé v $M_a ∧
+M_b$. $M_a$ bude podle nápovědy $M_1|U ⊕ M_2|U$.  $\Ind(M_b)$ bude
+postaven na stejné nosné množině, čili $V = M_1|U ⊕ M_2|U$ (některé
+elementy jsou v $U$ jednou, ale v $M_1 ⊕ M_2$ dvakrát). $\Ind(M_b)=
+\{I ⊆ V | I $ neobsahuje žádný prvek a jeho duplikát zároveň $\}$.
+
+Tvrdíme, že $r(U)$ je max. nezávislá v $M_a ∧ M_b$. Kdyby nebyla, tak
+existuje větší nezávislá v $M_a ∧ M_b$ a tu bychom mohli přeložit jako
+nezávislou v $M_1 ∪ M_2$.
+
+No a když tomuto věříme, tak $r(U) = \min_{T ⊆ U} r_a(T) + r_b(U ∖ T)
+= \min_{T ⊆ U} r_a(T) + |U ∖ T|$, protože $U ∖ T$ je nezávislou v
+$M_b$ (sama neobsahuje žádné duplikáty).
+}
+
+\input mbfooter

@@ -1,0 +1,55 @@
+\input mbheader
+
+\title{2. cvičení z Matroidů}{ranková funkce, dualita}
+
+
+\ex{ Dokažte následující ekvivalenci: Funkce $f:2^{E} → ℝ$ je submodulární, právě když je submodulární pro rozšíření dvěma elementy,
+čili \[∀ X ⊆ E, x_1, x_2 ∉ X: f(X + x_1) + f(X + x_2) ≥ f(X ∪ \{x_1,x_2\}) + f(X)\].
+}
+\ex{U každé z následujícich funkcí rozhodněte, je-li submodulární, a pokud ano, je-li i monotónní (pak definuje matroid).
+
+\begin{itemize} 
+\item Mějme graf $G = (V,E)$. Funkce $f_1: 2^V → ℕ_0$ počítá pro každou podmnožinu $S ⊆ V$ velikost řezu indukovaného $S$, čili $f_1(S) = |\{uv ∈ E, u ∈ S, v ∉ S \}|$. 
+\item Funkce $f_2: 2^E → ℝ$ je libovolná funkce splňující $∀S,T ⊆ E: f(S) + f(T) ≥ F(S ∪ T)$. 
+\item Mějme matroid $M = (E, \Ind)$ s rankovou funkcí $r$, a navíc ještě přirozené číslo $k$, $k≤r(M)$.
+Funkce $f_{3,k}: 2^E → ℕ_0$ je pak $f_{3,k}(X) = \min\{k,r(X)\}$. 
+\end{itemize}
+
+}
+
+\medskip\hrule\medskip
+
+\ex{Z duality jsme získali několik nových objektů v matroidu, možná nejzajímavějším je {\it kokružnice}. Pro přesnost, $D$
+je kokružnice v $M$, právě když $D$ je kružnicí v $M^*$. Dokažme si něco o nich:
+
+\begin{itemize}
+\item Nejprve nalezněte (podobně jako pro uzávěr a nadrovinu) popis kokružnice $D$ v grafu pomocí grafových pojmů.
+\item Dokažte také toto lemma: $D$ je kokružnice $⇔ E ∖ D$ je nadrovina.
+\end{itemize}
+}
+
+\ex{Dokažte jednoduché, ale překvapivě užitečné lemma, se kterým se ještě setkáme na přednášce:
+
+Pro každý matroid, každou kružnici $C$ a kokružnici $D$ platí, že $|C ∩ D| ≠ 1$.
+}
+
+\ex{
+\begin{itemize}
+\item Nalezněte matroidový duál ke $K_4, K_{2,3}$.
+\item (Zdánlivě nematroidová úloha.) Mějme souvislý, rovinný graf $G =(V,E)$ s kostrou velikosti $k$.
+Jak veliká je kostra rovinného duálu $G^*$? 
+\end{itemize}
+}
+
+\ex{ Mějme dva matroidy $M_1, M_2$ na disjunktních nosných množinách. Definujme si {\it direktní součet} $M_1$ s $M_2$ takto: $\Ind(M_1 ⊕ M_2) ≡ \{ I_1 ∪ I_2 | I_1 ∈ \Ind(M_1), I_2 ∈ \Ind(M_2)\}$.
+
+\begin{itemize}
+\item Dokažte, že direktní součet je znovu matroid.
+\item Je direktní součet dvou matroidů na {\it nedisjunktních} nosných množinách stále matroid?
+\item Popište kružnice, báze matroidu $M_1 ⊕ M_2$.
+\item Popište, jak vypadá direktní součet dvou grafů, dvou vektorových matroidů.
+\item (Náš cíl.) Jak vypadá duál $(M_1 ⊕ M_2)^*$? Dá se popsat pomocí $M_1^*, M_2^*$?
+\end{itemize}
+}
+
+\input mbfooter

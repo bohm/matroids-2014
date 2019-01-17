@@ -1,0 +1,57 @@
+\input mbheader
+\title{6. cvičení z Matroidů}{Souvislost}
+
+\ex{\textit{Z predminula:} Dokažte tranzitivnost relace \uv{být na
+společně kružnici} pro matroidy.
+
+Čili: Nechť $x,y ∈ C_1$, $y,z ∈ C_2$, pak existuje $C_3$ taková, že $x,z ∈ C_3$.
+
+{\bf Nápověda:} Postupujte indukcí třeba podle $n = |C_2 ∖ C_1|$. Bude se hodit silná eliminace.
+}
+
+\ex{Dokazte nasledujici tvrzeni: Matroid $M$ je souvisly, prave kdyz
+pro kazdou dvojici hran existuje nadrovina, ktera se obema z nich
+vyhyba.}
+
+\ex{
+\begin{enumerate}
+\item Dokazte, ze matroid $M_1 ⊕ M_2$ je nesouvisly, i kdyz $M_1$ i $M_2$ jsou souvisle.
+\item Dokazte, ze matroid je nesouvisly, prave kdyz $\Ind(M) = \Ind(M_1 ⊕ M_2)$ pro $E(M_1)$ nejakou podmnozinu $E(M)$ a $E(M_2) = E(M) - E(M_1)$.
+\end{enumerate}
+}
+
+
+\ex{Necht v matroidu $M$ je $\{e,f\}$ kruznice a kokruznice
+zaroven. Dokazte, ze potom uz je to komponenta $M$.
+}
+
+\ex{Mejme bazi $B$ a hranu $e ∉ B$. Oznacme jako {\it fundamentalni
+kruznici obsahujici hranu $e$ vuci bazi $B$} kruznici, ktera vznikne v
+$B+e$.
+
+Nyni samotny priklad: Mejme jednu konkretni bazi $B_p$ matroidu
+$M$. Je pravda, ze kazda kruznice $C ∈ \Cyc(M)$ je bud fundamentalni kruznici,
+nebo vznikne posloupnosti
+eliminaci fundamentalnich kruznic vuci bazi $B_p$?
+
+Posloupnosti eliminaci myslime: vezmeme dve fundamentalni kruznice
+$C_1, C_2$, ty zeliminujeme, dostaneme nejakou kruznici $C_a$, nyni
+zeliminujeme kruznici $C_a$ s fundamentalni kruznici $C_3$ a dostaneme
+$C_b$, …, a nakonec eliminaci dostavame $C$.
+}
+
+\ex{Nyni uz vime nekolik zpusobu, jak poznat, je-li matroid $M$
+souvisly. Zkuste tedy vymyslet nejaky polynomialni algoritmus, ktery
+zjisti, jestli $M$ souvisly je nebo neni. Predpokladejte, ze $M$ je
+zadany orakulem, ktereho se muzete ptat v case $O(1)$ na
+zavislost/nezavislost jedne podmnoziny.}
+
+\ex{Necht matroid $M$ je souvisly a $e,f$ jsou dve jeho libovolne
+hrany.  Dokazte, ze alespon jeden matroid ze ctverice $M -e-f, M -e
+/f, M -f /e, M/\{e,f\}$ je take souvisly.
+
+% Najdete take (4) priklady matroidu, kde tri matroidy z teto ctverice
+% souvisle nejsou, ale posledni je.
+}
+
+\input mbfooter
